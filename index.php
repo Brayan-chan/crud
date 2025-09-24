@@ -33,7 +33,7 @@ include 'Config/config.php';
         
         function eliminarAlumno(id) {
             if(confirm('¿Estás seguro de que quieres eliminar este alumno?')) {
-                alert('Funcionalidad de eliminar alumno con ID: ' + id + ' (próximamente)');
+                window.location.href = 'delete_alumno.php?id=' + id;
             }
         }
     </script>
