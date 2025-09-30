@@ -6,7 +6,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $id = $_GET['id'];
     
     // Obtener los datos del alumno
-    $sql = "SELECT id, nombre, correo, matricula FROM alumnos WHERE id = ?";
+    $sql = "SELECT id, nombre, correo, matricula FROM alumnos WHERE id = ?"; // El ? sirve para preguntar el id que recibimos de la funcion de javascript
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id);
     $stmt->execute();
@@ -39,6 +39,8 @@ $conn->close();
 <body>
     <form id="form" method="POST" action="update_alumno.php">
         <h2>Editar Alumno</h2>
+
+        <!-- Le mandamos el id del alumno como un campo oculto -->
         <input type="hidden" name="id" value="<?php echo $alumno['id']; ?>">
         
         <label for="nombre">Nombre</label>

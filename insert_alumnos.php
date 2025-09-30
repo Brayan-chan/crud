@@ -15,11 +15,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // Preparar la declaración
         if ($stmt = $conn->prepare($sql)) {
-            // Vincular parámetros
+            // Vincular parámetros (s = string, i = integer, d = double)
             $stmt->bind_param("sss", $nombre, $correo, $matricula);
             
             // Ejecutar la consulta
             if ($stmt->execute()) {
+                // Redirigir al usuario a la página principal con un mensaje de éxito
                 echo "<script>
                         alert('Alumno insertado correctamente');
                         window.location.href = 'index.php';

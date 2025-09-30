@@ -3,10 +3,12 @@ include 'config/config.php';
 
 // Función para obtener todos los alumnos
 function obtenerAlumnos($conn) {
-    $sql = "SELECT id, nombre, correo, matricula FROM alumnos ORDER BY id ASC";
+    $sql = "SELECT id, nombre, correo, matricula FROM alumnos ORDER BY id ASC"; // Ascendente
     $result = $conn->query($sql);
-    
+
+    // Verificar si hay resultados
     if ($result->num_rows > 0) {
+        // Crear la tabla HTML
         echo "<table>";
         echo "<thead>";
         echo "<tr>";
